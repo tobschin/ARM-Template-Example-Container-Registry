@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "app-name": {
+            "type": "string",
+            "defaultValue": "myTestAppName"
+        }
+    },
+    "functions": [],
+    "variables": {
+        "app-name": "[parameters('app-name')]"
+
+    },
+    "resources": [
+        {
+            "name": "[variables('app-name')]",
+            "type": "Microsoft.ContainerRegistry/registries",
+            "apiVersion": "2019-05-01",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Basic"
+            },
+            "properties": {
+                "adminUserEnabled": true
+            }
+        }
+    ],
+    "outputs": {
+    
+        "app-name": {
+            "type": "string",
+            "value": "[variables('app-name')]"
+        }
+    }
+}
