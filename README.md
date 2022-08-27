@@ -1,4 +1,7 @@
 # Azure ARM - Example
+
+Creates Container Registry
+
 ```sh
 # Create Ressource Group
 az group create --name testrg --location germanywestcentral
